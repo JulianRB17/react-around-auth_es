@@ -1,8 +1,6 @@
 Around the U.S. project on React, featuring authorization and registration.
 
-This repository will contain your own front-end project on React with added authorization and registration features.
-Start working with your previously built front end code from Sprint 11.
+Entrega de proyecto para el sprint 14 del bootcamp Practicum de Yandex.
+Se aumentan las rutas /signin y /signup para generar usuarios y, al ser autentificados, acceder a la ruta principal: /.
 
-All authorization, registration and token requests must go through to the server running on [https://register.nomoreparties.co](https://register.nomoreparties.co/).
-
-Good luck!
+Toda la autorización, registro y solicitud de token van a través del servidor[https://register.nomoreparties.co](https://register.nomoreparties.co/).
