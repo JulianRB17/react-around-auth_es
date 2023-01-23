@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Redirect, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import '../index.css';
 import Header from './Header';
 import Main from './Main';
@@ -16,7 +16,7 @@ import { register, authorize, checkToken } from '../utils/auth';
 import Register from '../components/Register';
 import Login from '../components/Login';
 import InfoTooltip from './InfoTooltip';
-import ProtectedRoute from '../utils/ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] =
@@ -63,36 +63,24 @@ export default function App() {
         if (res) {
           setEmail(res.data.email);
           setAuthorized(true);
-          Navigate('/');
         }
       });
     }
   }, []);
 
   React.useEffect(() => {
-    if (!isAuthorized) Navigate('/signin');
+    Navigate('/');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function closeAllPopups() {
-    if (isAvatarProfilePopupOpen) {
-      setAvatarProfilePopupOpen(false);
-    }
-    if (isEditProfilePopupOpen) {
-      setEditProfilePopupOpen(false);
-    }
-    if (isAddPlacePopupOpen) {
-      setAddPlacePopupOpen(false);
-    }
-    if (popupEraseCard) {
-      setPopupEraseCard(false);
-    }
-    if (popupPic) {
-      setPopupPic(false);
-      setSelectedCard('');
-    }
-    if (isPopupAuthOpen) {
-      setPopupAuthOpen(false);
-    }
+    setAvatarProfilePopupOpen(false);
+    setEditProfilePopupOpen(false);
+    setAddPlacePopupOpen(false);
+    setPopupEraseCard(false);
+    setPopupPic(false);
+    setSelectedCard('');
+    setPopupAuthOpen(false);
   }
 
   function handleEditAvatarClick() {

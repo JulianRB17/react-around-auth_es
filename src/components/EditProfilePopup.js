@@ -14,12 +14,13 @@ export default function EditProfilePopup(props) {
     name,
     about,
   } = props;
+
   const currentUser = React.useContext(CurrentUserContext);
 
   React.useEffect(() => {
     setUserName(currentUser.name);
     setUserDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, setUserName, setUserDescription]);
 
   function handleSubmit(e) {
     e.preventDefault();
