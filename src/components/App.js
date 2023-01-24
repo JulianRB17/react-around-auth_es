@@ -70,7 +70,6 @@ export default function App() {
 
   React.useEffect(() => {
     Navigate('/');
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function closeAllPopups() {

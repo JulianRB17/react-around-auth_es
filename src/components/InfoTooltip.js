@@ -17,7 +17,7 @@ export default function InfoTooltip(props) {
         ></img>
         <h3 className="popup__authorization-msg">
           {isAuthorized
-            ? 'Succes! You have now been registered.'
+            ? 'Success! You have now been registered.'
             : 'Oops, something went wrong! Please try again.'}
         </h3>
       </div>
