@@ -37,8 +37,8 @@ export default function App() {
   const [password, setPassword] = React.useState('');
   const [isPopupAuthOpen, setPopupAuthOpen] = React.useState(false);
   const [isAuthorized, setAuthorized] = React.useState(false);
-
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+  const navigation = React.useRef(useNavigate());
 
   React.useEffect(() => {
     api
@@ -69,8 +69,8 @@ export default function App() {
   }, []);
 
   React.useEffect(() => {
-    Navigate('/');
-  }, []);
+    navigation.current('/');
+  }, [navigation]);
 
   function closeAllPopups() {
     setAvatarProfilePopupOpen(false);
@@ -151,7 +151,7 @@ export default function App() {
       .then((res) => {
         if (res) {
           setPassword('');
-          Navigate('/', { replace: true });
+          navigate('/', { replace: true });
           setAuthorized(true);
           setPopupAuthOpen(true);
         } else {
@@ -166,7 +166,7 @@ export default function App() {
       .then((res) => {
         if (res) {
           setPassword('');
-          Navigate('/', { replace: true });
+          navigate('/', { replace: true });
           setAuthorized(true);
         }
       })
