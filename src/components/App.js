@@ -37,12 +37,13 @@ export default function App() {
   const [password, setPassword] = React.useState('');
   const [isPopupAuthOpen, setPopupAuthOpen] = React.useState(false);
   const [isAuthorized, setAuthorized] = React.useState(false);
+  const [jwt, setJwt] = React.useState('');
   const navigate = useNavigate();
   const navigation = React.useRef(useNavigate());
 
   React.useEffect(() => {
     api
-      .getUserInfo()
+      .getUserInfo(jwt)
       .then((userInfo) => setCurrentUser(userInfo))
       .catch((err) => console.error(err));
   }, []);
@@ -58,7 +59,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (localStorage.getItem('jwt')) {
-      const jwt = localStorage.getItem('jwt');
+      setJwt(localStorage.getItem('jwt'));
       checkToken(jwt).then((res) => {
         if (res) {
           setEmail(res.data.email);
@@ -176,6 +177,7 @@ export default function App() {
 
   function handleLogout() {
     setEmail('');
+    setJwt('');
     setAuthorized(false);
     localStorage.removeItem('jwt');
   }
