@@ -7,7 +7,7 @@ class Api {
       },
     }
   ) {
-    this._baseUrl = '127.0.0.1:3000';
+    this._baseUrl = 'https://julian-around.students.nomoredomainssbs.ru/';
     this._options = options;
   }
 
