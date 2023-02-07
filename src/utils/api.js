@@ -7,7 +7,7 @@ class Api {
       },
     }
   ) {
-    this._baseUrl = 'https://julian-around.students.nomoredomainssbs.ru/';
+    this._baseUrl = 'https://julianrb-around.students.nomoredomainssbs.ru/';
     this._options = options;
   }
 
